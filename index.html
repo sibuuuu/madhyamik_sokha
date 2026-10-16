@@ -1,0 +1,1071 @@
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madhyamik Shokha by Sibora | WBBSE Class 10 Prep</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            900: '#312e81',
+                        },
+                        accent: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .dark ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #334155;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .dark .glass-nav {
+            background: rgba(15, 23, 42, 0.85);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #4f46e5 0%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .dark .gradient-text {
+            background: linear-gradient(135deg, #818cf8 0%, #f472b6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-bg {
+            background-image: radial-gradient(circle at top right, rgba(99, 102, 241, 0.15), transparent 40%),
+                              radial-gradient(circle at bottom left, rgba(236, 72, 153, 0.1), transparent 40%);
+        }
+
+        /* Tab Transition */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-200 transition-colors duration-300 min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-gradient-to-r from-brand-600 via-purple-600 to-pink-600 text-white text-xs sm:text-sm py-2 px-4 text-center font-medium">
+        <span class="inline-flex items-center gap-1.5">
+            <i data-lucide="sparkles" class="w-4 h-4 text-accent-400 animate-pulse"></i>
+            Empowering WBBSE Class 10 Students across West Bengal — 100% Free Educational Platform by Sibora!
+        </span>
+    </div>
+
+    <!-- Header / Navigation -->
+    <header class="sticky top-0 z-50 glass-nav border-b border-slate-200/80 dark:border-slate-800/80 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <div class="flex items-center gap-3 cursor-pointer" onclick="switchTab('about')">
+                <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-brand-600 to-purple-600 flex items-center justify-center text-white shadow-lg shadow-brand-500/30">
+                    <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <h1 class="font-heading font-bold text-xl sm:text-2xl tracking-tight text-slate-900 dark:text-white leading-none">
+                        Madhyamik <span class="text-brand-600 dark:text-brand-400">Shokha</span>
+                    </h1>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 font-medium mt-0.5 tracking-wide">BY SIBORA</p>
+                </div>
+            </div>
+
+            <!-- Main Navigation Tabs (Desktop) -->
+            <nav class="hidden md:flex items-center gap-1 bg-slate-100 dark:bg-slate-900 p-1.5 rounded-2xl border border-slate-200/60 dark:border-slate-800">
+                <button onclick="switchTab('about')" id="tab-btn-about" class="tab-btn active px-5 py-2 rounded-xl text-sm font-semibold transition-all duration-200 flex items-center gap-2 bg-white dark:bg-slate-800 text-brand-600 dark:text-brand-400 shadow-sm">
+                    <i data-lucide="compass" class="w-4 h-4"></i>
+                    About Us
+                </button>
+                <button onclick="switchTab('privacy')" id="tab-btn-privacy" class="tab-btn px-5 py-2 rounded-xl text-sm font-semibold transition-all duration-200 flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white">
+                    <i data-lucide="shield-check" class="w-4 h-4"></i>
+                    Privacy Policy
+                </button>
+                <button onclick="switchTab('terms')" id="tab-btn-terms" class="tab-btn px-5 py-2 rounded-xl text-sm font-semibold transition-all duration-200 flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white">
+                    <i data-lucide="scale" class="w-4 h-4"></i>
+                    Terms & Conditions
+                </button>
+            </nav>
+
+            <!-- Actions -->
+            <div class="flex items-center gap-3">
+                <!-- Dark Mode Toggle -->
+                <button id="theme-toggle" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors border border-slate-200/60 dark:border-slate-800" aria-label="Toggle Dark Mode">
+                    <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
+                    <i data-lucide="sun" class="w-5 h-5 block dark:hidden text-amber-500"></i>
+                </button>
+                
+                <a href="mailto:sibnathbairagi94@gmail.com" class="hidden sm:inline-flex items-center gap-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-4 py-2.5 rounded-xl text-sm font-semibold hover:bg-brand-600 dark:hover:bg-brand-400 dark:hover:text-white transition-colors shadow-sm">
+                    <i data-lucide="mail" class="w-4 h-4"></i>
+                    <span>Support</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Tabs -->
+        <div class="md:hidden flex border-t border-slate-200 dark:border-slate-800 bg-slate-50/90 dark:bg-slate-900/90 px-2 py-1.5 gap-1">
+            <button onclick="switchTab('about')" id="mob-tab-btn-about" class="mob-tab-btn flex-1 py-2 rounded-lg text-xs font-semibold flex flex-col items-center justify-center gap-1 bg-white dark:bg-slate-800 text-brand-600 dark:text-brand-400 shadow-sm">
+                <i data-lucide="compass" class="w-4 h-4"></i>
+                About Us
+            </button>
+            <button onclick="switchTab('privacy')" id="mob-tab-btn-privacy" class="mob-tab-btn flex-1 py-2 rounded-lg text-xs font-semibold flex flex-col items-center justify-center gap-1 text-slate-600 dark:text-slate-400">
+                <i data-lucide="shield-check" class="w-4 h-4"></i>
+                Privacy
+            </button>
+            <button onclick="switchTab('terms')" id="mob-tab-btn-terms" class="mob-tab-btn flex-1 py-2 rounded-lg text-xs font-semibold flex flex-col items-center justify-center gap-1 text-slate-600 dark:text-slate-400">
+                <i data-lucide="scale" class="w-4 h-4"></i>
+                Terms
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow">
+
+        <!-- ==========================================
+             SECTION 3: ABOUT US (Default Landing View)
+             ========================================== -->
+        <section id="tab-about" class="tab-content active hero-bg">
+            <!-- Hero Banner -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-20 lg:pt-20 lg:pb-28">
+                <div class="text-center max-w-4xl mx-auto">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-50 dark:bg-brand-900/40 border border-brand-200 dark:border-brand-700/50 text-brand-700 dark:text-brand-300 text-xs sm:text-sm font-semibold mb-6">
+                        <span class="w-2 h-2 rounded-full bg-brand-600 animate-ping"></span>
+                        WBBSE Class 10 Exam Preparation App
+                    </div>
+                    <h1 class="font-heading text-4xl sm:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight mb-6">
+                        Your Ultimate Companion for <span class="gradient-text">Madhyamik Success</span>
+                    </h1>
+                    <p class="text-lg sm:text-xl text-slate-600 dark:text-slate-300 leading-relaxed mb-10 max-w-2xl mx-auto">
+                        Welcome to <strong>Madhyamik Shokha</strong> by Sibora. We blend engaging video lessons, interactive quizzes, animation stories, and gamified rewards to make Class 10 board preparation accessible, fun, and completely free.
+                    </p>
+                    <div class="flex flex-wrap items-center justify-center gap-4">
+                        <a href="#offerings" class="px-7 py-3.5 rounded-2xl bg-brand-600 hover:bg-brand-700 text-white font-semibold shadow-lg shadow-brand-500/30 transition-all flex items-center gap-2 hover:-translate-y-0.5">
+                            <span>Explore Features</span>
+                            <i data-lucide="arrow-down-right" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#connect" class="px-7 py-3.5 rounded-2xl bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-white font-semibold border border-slate-200 dark:border-slate-800 transition-all flex items-center gap-2">
+                            <i data-lucide="users" class="w-5 h-5 text-brand-500"></i>
+                            <span>Join Community</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Stats / Highlights -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mt-16 max-w-5xl mx-auto">
+                    <div class="bg-white/80 dark:bg-slate-900/80 backdrop-blur border border-slate-200/70 dark:border-slate-800 p-6 rounded-3xl text-center shadow-sm">
+                        <div class="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center mx-auto mb-3">
+                            <i data-lucide="book-open-check" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-2xl text-slate-900 dark:text-white">WBBSE</h3>
+                        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">Tailored for Class 10</p>
+                    </div>
+                    <div class="bg-white/80 dark:bg-slate-900/80 backdrop-blur border border-slate-200/70 dark:border-slate-800 p-6 rounded-3xl text-center shadow-sm">
+                        <div class="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mx-auto mb-3">
+                            <i data-lucide="indian-rupee" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-2xl text-slate-900 dark:text-white">100% Free</h3>
+                        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">Zero Hidden Subscriptions</p>
+                    </div>
+                    <div class="bg-white/80 dark:bg-slate-900/80 backdrop-blur border border-slate-200/70 dark:border-slate-800 p-6 rounded-3xl text-center shadow-sm">
+                        <div class="w-12 h-12 rounded-2xl bg-amber-50 dark:bg-amber-950/60 text-amber-500 flex items-center justify-center mx-auto mb-3">
+                            <i data-lucide="coins" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-2xl text-slate-900 dark:text-white">Earn Coins</h3>
+                        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">Gamified Learning Rewards</p>
+                    </div>
+                    <div class="bg-white/80 dark:bg-slate-900/80 backdrop-blur border border-slate-200/70 dark:border-slate-800 p-6 rounded-3xl text-center shadow-sm">
+                        <div class="w-12 h-12 rounded-2xl bg-purple-50 dark:bg-purple-950/60 text-purple-600 dark:text-purple-400 flex items-center justify-center mx-auto mb-3">
+                            <i data-lucide="trophy" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-2xl text-slate-900 dark:text-white">Leaderboards</h3>
+                        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">Compete Across Bengal</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Who We Are & Our Mission -->
+            <div class="bg-white dark:bg-slate-900 py-16 lg:py-24 border-y border-slate-200/80 dark:border-slate-800">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div class="space-y-6">
+                            <div class="inline-flex items-center gap-2 text-brand-600 dark:text-brand-400 font-bold text-sm uppercase tracking-wider">
+                                <i data-lucide="info" class="w-4 h-4"></i> Who We Are
+                            </div>
+                            <h2 class="font-heading text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">
+                                Transforming Board Exam Preparation in West Bengal
+                            </h2>
+                            <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                                <strong>Madhyamik Shokha</strong> is a dedicated educational mobile application specifically crafted for students preparing for the West Bengal Board of Secondary Education (WBBSE) Class 10 (Madhyamik) examination. Built with care in India, we understand the unique challenges faced by Madhyamik aspirants and bridge the gap between traditional textbook learning and modern digital interactivity.
+                            </p>
+                            <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/50">
+                                <h3 class="font-heading font-bold text-lg text-slate-900 dark:text-white flex items-center gap-2 mb-2">
+                                    <i data-lucide="target" class="w-5 h-5 text-rose-500"></i>
+                                    Our Mission
+                                </h3>
+                                <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                                    To democratize quality education by providing high-yield, completely free study materials, interactive quizzes, visual animation stories, and a rewarding virtual coin system so that every Class 10 student—regardless of financial background—can excel with confidence.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Company Info Card (Sibora) -->
+                        <div class="bg-gradient-to-br from-slate-900 via-brand-900 to-slate-900 text-white p-8 sm:p-10 rounded-3xl shadow-xl relative overflow-hidden">
+                            <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-brand-500/20 rounded-full blur-2xl"></div>
+                            <div class="relative z-10">
+                                <div class="flex items-center justify-between mb-8">
+                                    <div>
+                                        <span class="text-xs uppercase tracking-widest text-brand-300 font-semibold">Parent Organization</span>
+                                        <h3 class="font-heading text-3xl font-extrabold mt-1">SIBORA</h3>
+                                    </div>
+                                    <span class="px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur text-xs font-semibold border border-white/15">
+                                        Founded in 2026
+                                    </span>
+                                </div>
+                                <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                                    Sibora is an innovative educational technology initiative founded in 2026 with a singular focus: creating student-first digital tools that turn academic pressure into joyful curiosity.
+                                </p>
+                                <div class="space-y-4 mb-8">
+                                    <div class="flex items-start gap-3">
+                                        <div class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-300 flex items-center justify-center shrink-0 mt-0.5">
+                                            <i data-lucide="heart-handshake" class="w-4 h-4"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-sm">Our Core Values</h4>
+                                            <p class="text-xs text-slate-300 mt-0.5">Accessibility, Student Privacy, Gamified Engagement, and Academic Integrity.</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-3">
+                                        <div class="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-300 flex items-center justify-center shrink-0 mt-0.5">
+                                            <i data-lucide="shield-alert" class="w-4 h-4"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-sm">The Sibora Promise</h4>
+                                            <p class="text-xs text-slate-300 mt-0.5">We promise never to sell your personal data, never to lock core learning behind paywalls, and to continually improve based on student feedback.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pt-6 border-t border-white/10 flex items-center justify-between text-xs text-slate-400">
+                                    <span>Made with ❤️ in India</span>
+                                    <span>WBBSE Class 10 Ecosystem</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- What We Offer -->
+            <div id="offerings" class="py-16 lg:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-brand-600 dark:text-brand-400 font-bold text-sm uppercase tracking-wider">What We Offer</span>
+                    <h2 class="font-heading text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mt-2">
+                        Everything You Need to Ace Madhyamik
+                    </h2>
+                    <p class="text-slate-600 dark:text-slate-400 mt-3">
+                        Carefully curated learning modules designed around the official WBBSE syllabus.
+                    </p>
+                </div>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                    <!-- Feature 1: Video Lessons -->
+                    <div class="bg-white dark:bg-slate-900 p-7 rounded-3xl border border-slate-200/80 dark:border-slate-800 hover:border-brand-500/50 transition-all duration-300 shadow-sm hover:shadow-xl group">
+                        <div class="w-14 h-14 rounded-2xl bg-rose-50 dark:bg-rose-950/50 text-rose-600 dark:text-rose-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="play-circle" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-slate-900 dark:text-white mb-2">Video Lessons</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Concept-focused, easy-to-understand video lectures breaking down complex WBBSE Class 10 topics chapter by chapter.
+                        </p>
+                    </div>
+
+                    <!-- Feature 2: PDF Notes -->
+                    <div class="bg-white dark:bg-slate-900 p-7 rounded-3xl border border-slate-200/80 dark:border-slate-800 hover:border-brand-500/50 transition-all duration-300 shadow-sm hover:shadow-xl group">
+                        <div class="w-14 h-14 rounded-2xl bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="file-text" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-slate-900 dark:text-white mb-2">High-Yield PDF Notes</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Crisp, exam-ready revision notes, suggestion papers, and formula sheets viewable directly inside our secure app reader.
+                        </p>
+                    </div>
+
+                    <!-- Feature 3: Interactive Quizzes -->
+                    <div class="bg-white dark:bg-slate-900 p-7 rounded-3xl border border-slate-200/80 dark:border-slate-800 hover:border-brand-500/50 transition-all duration-300 shadow-sm hover:shadow-xl group">
+                        <div class="w-14 h-14 rounded-2xl bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="help-circle" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-slate-900 dark:text-white mb-2">Interactive Quizzes</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Test your preparation with timed MCQ practice sets modeled on real Madhyamik question patterns with instant feedback.
+                        </p>
+                    </div>
+
+                    <!-- Feature 4: Leaderboards -->
+                    <div class="bg-white dark:bg-slate-900 p-7 rounded-3xl border border-slate-200/80 dark:border-slate-800 hover:border-brand-500/50 transition-all duration-300 shadow-sm hover:shadow-xl group">
+                        <div class="w-14 h-14 rounded-2xl bg-purple-50 dark:bg-purple-950/50 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="award" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-slate-900 dark:text-white mb-2">Live Leaderboards</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Track your rank among fellow Class 10 students across West Bengal. Healthy competition that motivates daily study habits!
+                        </p>
+                    </div>
+
+                    <!-- Feature 5: Animation Stories -->
+                    <div class="bg-white dark:bg-slate-900 p-7 rounded-3xl border border-slate-200/80 dark:border-slate-800 hover:border-brand-500/50 transition-all duration-300 shadow-sm hover:shadow-xl group">
+                        <div class="w-14 h-14 rounded-2xl bg-pink-50 dark:bg-pink-950/50 text-pink-600 dark:text-pink-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="clapperboard" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-slate-900 dark:text-white mb-2">Animation Stories</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Visual storytelling for literature, history, and science concepts so you remember lessons effortlessly during exams.
+                        </p>
+                    </div>
+
+                    <!-- Feature 6: In-App Coins -->
+                    <div class="bg-white dark:bg-slate-900 p-7 rounded-3xl border border-slate-200/80 dark:border-slate-800 hover:border-brand-500/50 transition-all duration-300 shadow-sm hover:shadow-xl group">
+                        <div class="w-14 h-14 rounded-2xl bg-amber-50 dark:bg-amber-950/50 text-amber-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="coins" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-slate-900 dark:text-white mb-2">Rewarding Coins System</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Earn virtual in-app Coins through quizzes, daily streaks, and rewarded ads to unlock premium notes, stories, and custom avatars.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Meet the Developer & Connect With Us -->
+            <div id="connect" class="bg-slate-100 dark:bg-slate-900/60 py-16 lg:py-24 border-t border-slate-200/80 dark:border-slate-800">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid lg:grid-cols-12 gap-8 items-stretch">
+                        
+                        <!-- Developer Card -->
+                        <div class="lg:col-span-7 bg-white dark:bg-slate-900 p-8 sm:p-10 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+                            <div>
+                                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 text-xs font-bold uppercase tracking-wider mb-6">
+                                    <i data-lucide="code-2" class="w-3.5 h-3.5"></i> Meet The Creator
+                                </div>
+                                <div class="flex flex-col sm:flex-row sm:items-center gap-5 mb-6">
+                                    <div class="w-20 h-20 rounded-2xl bg-gradient-to-tr from-brand-600 to-pink-500 flex items-center justify-center text-white font-heading font-bold text-3xl shadow-md shrink-0">
+                                        SB
+                                    </div>
+                                    <div>
+                                        <h3 class="font-heading text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">Sibnath Bairagi</h3>
+                                        <p class="text-brand-600 dark:text-brand-400 font-medium text-sm">Developer & Founder, Sibora • India</p>
+                                    </div>
+                                </div>
+                                <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+                                    "I built <strong>Madhyamik Shokha</strong> with a vision to ensure every Class 10 student under WBBSE gets modern, interactive, and reliable study support right on their smartphone. Your feedback and exam success drive every update we release."
+                                </p>
+                            </div>
+
+                            <div class="pt-6 border-t border-slate-100 dark:border-slate-800 flex flex-wrap items-center justify-between gap-4">
+                                <div class="flex items-center gap-2.5 text-sm text-slate-600 dark:text-slate-300">
+                                    <i data-lucide="mail" class="w-4 h-4 text-brand-500"></i>
+                                    <a href="mailto:sibnathbairagi94@gmail.com" class="font-semibold hover:text-brand-600 dark:hover:text-brand-400 underline underline-offset-4">
+                                        sibnathbairagi94@gmail.com
+                                    </a>
+                                </div>
+                                <span class="text-xs bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-lg font-medium text-slate-500 dark:text-slate-400">
+                                    📍 West Bengal, India
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Social Media / Community Card -->
+                        <div class="lg:col-span-5 bg-white dark:bg-slate-900 p-8 sm:p-10 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+                            <div>
+                                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 dark:bg-pink-950 text-pink-600 dark:text-pink-400 text-xs font-bold uppercase tracking-wider mb-6">
+                                    <i data-lucide="share-2" class="w-3.5 h-3.5"></i> Connect With Us
+                                </div>
+                                <h3 class="font-heading text-2xl font-bold text-slate-900 dark:text-white mb-2">Join Our Student Community</h3>
+                                <p class="text-sm text-slate-600 dark:text-slate-400 mb-6">
+                                    Get daily exam tips, quiz alerts, new video notifications, and direct support on our official channels:
+                                </p>
+
+                                <div class="space-y-3.5">
+                                    <!-- WhatsApp -->
+                                    <a href="https://whatsapp.com" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-4 rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200/60 dark:border-emerald-800/50 hover:bg-emerald-100/70 dark:hover:bg-emerald-900/40 transition-all group">
+                                        <div class="flex items-center gap-3.5">
+                                            <div class="w-10 h-10 rounded-xl bg-emerald-500 text-white flex items-center justify-center shadow-sm">
+                                                <i data-lucide="message-circle" class="w-5 h-5"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-slate-900 dark:text-white text-sm">WhatsApp Channel</h4>
+                                                <p class="text-xs text-slate-500 dark:text-slate-400">Instant PDF & exam updates</p>
+                                            </div>
+                                        </div>
+                                        <i data-lucide="external-link" class="w-4 h-4 text-emerald-600 group-hover:translate-x-0.5 transition-transform"></i>
+                                    </a>
+
+                                    <!-- YouTube -->
+                                    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-4 rounded-2xl bg-rose-50/70 dark:bg-rose-950/30 border border-rose-200/60 dark:border-rose-800/50 hover:bg-rose-100/70 dark:hover:bg-rose-900/40 transition-all group">
+                                        <div class="flex items-center gap-3.5">
+                                            <div class="w-10 h-10 rounded-xl bg-rose-600 text-white flex items-center justify-center shadow-sm">
+                                                <i data-lucide="youtube" class="w-5 h-5"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-slate-900 dark:text-white text-sm">YouTube Channel</h4>
+                                                <p class="text-xs text-slate-500 dark:text-slate-400">Free Video Lessons & Animations</p>
+                                            </div>
+                                        </div>
+                                        <i data-lucide="external-link" class="w-4 h-4 text-rose-600 group-hover:translate-x-0.5 transition-transform"></i>
+                                    </a>
+
+                                    <!-- Instagram -->
+                                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-4 rounded-2xl bg-purple-50/70 dark:bg-purple-950/30 border border-purple-200/60 dark:border-purple-800/50 hover:bg-purple-100/70 dark:hover:bg-purple-900/40 transition-all group">
+                                        <div class="flex items-center gap-3.5">
+                                            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 via-pink-500 to-purple-600 text-white flex items-center justify-center shadow-sm">
+                                                <i data-lucide="instagram" class="w-5 h-5"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-slate-900 dark:text-white text-sm">Instagram Page</h4>
+                                                <p class="text-xs text-slate-500 dark:text-slate-400">Reels, Toppers & Announcements</p>
+                                            </div>
+                                        </div>
+                                        <i data-lucide="external-link" class="w-4 h-4 text-purple-600 group-hover:translate-x-0.5 transition-transform"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==========================================
+             SECTION 1: PRIVACY POLICY
+             ========================================== -->
+        <section id="tab-privacy" class="tab-content py-12 lg:py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Document Header -->
+                <div class="bg-gradient-to-r from-brand-600 to-indigo-800 rounded-3xl p-8 sm:p-10 text-white mb-10 shadow-lg relative overflow-hidden">
+                    <div class="relative z-10 max-w-3xl">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/15 backdrop-blur text-xs font-semibold mb-4">
+                            <i data-lucide="lock" class="w-3.5 h-3.5"></i> Official Legal Document
+                        </div>
+                        <h1 class="font-heading text-3xl sm:text-5xl font-extrabold mb-3">Privacy Policy</h1>
+                        <p class="text-brand-100 text-sm sm:text-base">
+                            Transparency and student safety are at the heart of <strong>Madhyamik Shokha</strong> by Sibora. Learn how we collect, use, and safeguard your information.
+                        </p>
+                        <div class="mt-6 flex flex-wrap gap-4 text-xs text-brand-200">
+                            <span><strong>Effective Date:</strong> January 1, 2026</span>
+                            <span>•</span>
+                            <span><strong>App Name:</strong> Madhyamik Shokha</span>
+                            <span>•</span>
+                            <span><strong>Company:</strong> Sibora (India)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid lg:grid-cols-12 gap-8 items-start">
+                    <!-- Sticky Table of Contents (Sidebar) -->
+                    <aside class="lg:col-span-4 lg:sticky lg:top-28 bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm">
+                        <h3 class="font-heading font-bold text-sm uppercase tracking-wider text-slate-400 mb-4 flex items-center gap-2">
+                            <i data-lucide="list" class="w-4 h-4"></i> Quick Contents
+                        </h3>
+                        <nav class="space-y-1.5 text-xs sm:text-sm max-h-[65vh] overflow-y-auto pr-2">
+                            <a href="#pp-intro" class="block py-1.5 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 font-medium">1. Introduction & Who We Are</a>
+                            <a href="#pp-collect" class="block py-1.5 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 font-medium">2. Information We Collect & Don't Collect</a>
+                            <a href="#pp-login" class="block py-1.5 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 font-medium">3. Login Options</a>
+                            <a href="#pp-use" class="block py-1.5 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 font-medium">4. How We Use Information</a>
+                            <a href="#pp-thirdparty" class="block py-1.5 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 font-medium">5. Third-Party Services</a>
+                            <a href="#pp-coins" class="block py-1.5 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 font-medium">6. In-App Currency (Coins) & Daily Limits</a>
+                            <a href="#pp-avatars" class="block py-1.5 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 font-medium">7. Avatars, Ads & Content Protection</a>
+                            <a href="#pp-security" class="block py-1.5 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 font-medium">8. Data Security & Children's Privacy</a>
+                            <a href="#pp-retention" class="block py-1.5 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 font-medium">9. Retention, Account Deletion & Rights</a>
+                            <a href="#pp-contact" class="block py-1.5 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 font-medium">10. Policy Changes & Contact</a>
+                        </nav>
+                    </aside>
+
+                    <!-- Policy Details Content -->
+                    <div class="lg:col-span-8 space-y-8">
+                        
+                        <!-- 1. Introduction & Who We Are -->
+                        <div id="pp-intro" class="bg-white dark:bg-slate-900 p-7 sm:p-8 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm scroll-mt-28">
+                            <h2 class="font-heading text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2.5">
+                                <span class="w-8 h-8 rounded-lg bg-brand-100 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center text-sm font-bold">1</span>
+                                Introduction & Who We Are
+                            </h2>
+                            <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+                                Welcome to <strong>Madhyamik Shokha</strong> ("we," "our," or "us"). This Privacy Policy explains how we collect, use, store, and protect your information when you use our mobile application. By using Madhyamik Shokha, you consent to the data practices described in this policy.
+                            </p>
+                            <div class="grid sm:grid-cols-2 gap-4 bg-slate-50 dark:bg-slate-800/50 p-5 rounded-2xl border border-slate-200/60 dark:border-slate-700/50 text-sm">
+                                <div>
+                                    <span class="text-xs text-slate-400 uppercase font-semibold">Developer & Founder</span>
+                                    <p class="font-bold text-slate-900 dark:text-white mt-0.5">Sibnath Bairagi (Sibora)</p>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-slate-400 uppercase font-semibold">Country of Operation</span>
+                                    <p class="font-bold text-slate-900 dark:text-white mt-0.5">India</p>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-slate-400 uppercase font-semibold">Official Contact Email</span>
+                                    <p class="font-bold text-brand-600 dark:text-brand-400 mt-0.5">sibnathbairagi94@gmail.com</p>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-slate-400 uppercase font-semibold">Primary Purpose</span>
+                                    <p class="font-bold text-slate-900 dark:text-white mt-0.5">Educational App for WBBSE Class 10</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2. Information We Collect & Do Not Collect -->
+                        <div id="pp-collect" class="bg-white dark:bg-slate-900 p-7 sm:p-8 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm scroll-mt-28">
+                            <h2 class="font-heading text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2.5">
+                                <span class="w-8 h-8 rounded-lg bg-brand-100 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center text-sm font-bold">2</span>
+                                Information We Collect
+                            </h2>
+                            <p class="text-slate-600 dark:text-slate-300 text-sm mb-6">
+                                We practice strict data minimization. We only collect information necessary to deliver a smooth, personalized educational experience:
+                            </p>
+
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <!-- Collected -->
+                                <div class="p-5 rounded-2xl bg-emerald-50/60 dark:bg-emerald-950/20 border border-emerald-200/70 dark:border-emerald-800/50">
+                                    <h3 class="font-heading font-bold text-emerald-800 dark:text-emerald-300 text-base flex items-center gap-2 mb-3">
+                                        <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-600"></i>
+                                        What We Collect
+                                    </h3>
+                                    <ul class="space-y-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+                                        <li class="flex items-start gap-2"><span class="text-emerald-600 font-bold">•</span> <strong>Name & Email Address:</strong> For profile creation, leaderboard display, and account recovery.</li>
+                                        <li class="flex items-start gap-2"><span class="text-emerald-600 font-bold">•</span> <strong>Password:</strong> Encrypted & securely managed via Firebase Authentication.</li>
+                                        <li class="flex items-start gap-2"><span class="text-emerald-600 font-bold">•</span> <strong>Device Information:</strong> Device model, OS version, and crash logs to fix bugs.</li>
+                                        <li class="flex items-start gap-2"><span class="text-emerald-600 font-bold">•</span> <strong>Advertising ID:</strong> Google Advertising ID used by Google AdMob to serve relevant ads and prevent fraud.</li>
+                                        <li class="flex items-start gap-2"><span class="text-emerald-600 font-bold">•</span> <strong>App Usage Data:</strong> Quiz scores, earned Coins, unlocked lessons, and leaderboard progress.</li>
+                                    </ul>
+                                </div>
+
+                                <!-- NOT Collected -->
+                                <div class="p-5 rounded-2xl bg-rose-50/60 dark:bg-rose-950/20 border border-rose-200/70 dark:border-rose-800/50">
+                                    <h3 class="font-heading font-bold text-rose-800 dark:text-rose-300 text-base flex items-center gap-2 mb-3">
+                                        <i data-lucide="x-circle" class="w-5 h-5 text-rose-600"></i>
+                                        What We DO NOT Collect
+                                    </h3>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400 mb-3">We never request or access sensitive personal data:</p>
+                                    <ul class="grid grid-cols-1 gap-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+                                        <li class="flex items-center gap-2"><i data-lucide="slash" class="w-3.5 h-3.5 text-rose-500"></i> No Phone Numbers</li>
+                                        <li class="flex items-center gap-2"><i data-lucide="slash" class="w-3.5 h-3.5 text-rose-500"></i> No Physical / Home Address</li>
+                                        <li class="flex items-center gap-2"><i data-lucide="slash" class="w-3.5 h-3.5 text-rose-500"></i> No GPS / Precise Location Data</li>
+                                        <li class="flex items-center gap-2"><i data-lucide="slash" class="w-3.5 h-3.5 text-rose-500"></i> No Device Photos, Videos, or Media</li>
+                                        <li class="flex items-center gap-2"><i data-lucide="slash" class="w-3.5 h-3.5 text-rose-500"></i> No Contact Lists</li>
+                                        <li class="flex items-center gap-2"><i data-lucide="slash" class="w-3.5 h-3.5 text-rose-500"></i> No Date of Birth (DOB)</li>
+                                        <li class="flex items-center gap-2"><i data-lucide="slash" class="w-3.5 h-3.5 text-rose-500"></i> No Payment, Bank, or Card Info</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 3. Login Options -->
+                        <div id="pp-login" class="bg-white dark:bg-slate-900 p-7 sm:p-8 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm scroll-mt-28">
+                            <h2 class="font-heading text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2.5">
+                                <span class="w-8 h-8 rounded-lg bg-brand-100 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center text-sm font-bold">3</span>
+                                Login Options
+                            </h2>
+                            <p class="text-sm text-slate-600 dark:text-slate-300 mb-4">We offer three flexible authentication methods powered by Google Firebase:</p>
+                            <div class="grid sm:grid-cols-3 gap-4">
+                                <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/50">
+                                    <h4 class="font-bold text-slate-900 dark:text-white text-sm mb-1">1. Google Sign-In</h4>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400">One-tap sign-in using your Google account basic profile (Name & Email).</p>
+                                </div>
+                                <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/50">
+                                    <h4 class="font-bold text-slate-900 dark:text-white text-sm mb-1">2. Email & Password</h4>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400">Standard registration using your email address and an encrypted password.</p>
+                                </div>
+                                <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/50">
+                                    <h4 class="font-bold text-slate-900 dark:text-white text-sm mb-1">3. Anonymous Login</h4>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400">Explore the app as a Guest without sharing personal details (note: data may be lost if app is uninstalled).</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 4. How We Use Info & 5. Third-Party Services -->
+                        <div id="pp-use" class="bg-white dark:bg-slate-900 p-7 sm:p-8 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm scroll-mt-28">
+                            <h2 class="font-heading text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2.5">
+                                <span class="w-8 h-8 rounded-lg bg-brand-100 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center text-sm font-bold">4</span>
+                                How We Use Your Information
+                            </h2>
+                            <ul class="grid sm:grid-cols-2 gap-4 text-sm text-slate-600 dark:text-slate-300 mb-8">
+                                <li class="flex items-start gap-2.5">
+                                    <i data-lucide="user-check" class="w-5 h-5 text-brand-500 shrink-0 mt-0.5"></i>
+                                    <span><strong>Account Management:</strong> Creating and syncing your profile, coins, and progress across sessions.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i data-lucide="book-open" class="w-5 h-5 text-brand-500 shrink-0 mt-0.5"></i>
+                                    <span><strong>Educational Access:</strong> Delivering WBBSE Class 10 notes, videos, quizzes, and leaderboard rankings.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i data-lucide="tv" class="w-5 h-5 text-brand-500 shrink-0 mt-0.5"></i>
+                                    <span><strong>Advertisements:</strong> Displaying banner, interstitial, and rewarded video ads via Google AdMob to keep the app free.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i data-lucide="trending-up" class="w-5 h-5 text-brand-500 shrink-0 mt-0.5"></i>
+                                    <span><strong>App Improvement:</strong> Analyzing crash reports and usage trends to improve stability and educational content.</span>
+                                </li>
+                            </ul>
+
+                            <div id="pp-thirdparty" class="pt-6 border-t border-slate-200 dark:border-slate-800 scroll-mt-28">
+                                <h3 class="font-heading text-lg font-bold text-slate-900 dark:text-white mb-3 flex items-center gap-2">
+                                    <span class="w-6 h-6 rounded-md bg-brand-100 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center text-xs font-bold">5</span>
+                                    Third-Party Services We Use
+                                </h3>
+                                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mb-4">
+                                    Our app integrates trusted third-party SDKs that operate under their own privacy policies:
+                                </p>
+                                <div class="flex flex-wrap gap-3">
+                                    <span class="px-3.5 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-xs font-semibold text-slate-700 dark:text-slate-300">🔥 Google Firebase (Auth, Firestore, Analytics, Crashlytics)</span>
+                                    <span class="px-3.5 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-xs font-semibold text-slate-700 dark:text-slate-300">📢 Google AdMob (Ad Delivery & Rewarded Ads)</span>
+                                    <span class="px-3.5 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-xs font-semibold text-slate-700 dark:text-slate-300">▶️ Google Play Services</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 6. In-App Currency (Coins) & Daily Limits -->
+                        <div id="pp-coins" class="bg-white dark:bg-slate-900 p-7 sm:p-8 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm scroll-mt-28">
+                            <h2 class="font-heading text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2.5">
+                                <span class="w-8 h-8 rounded-lg bg-brand-100 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center text-sm font-bold">6</span>
+                                In-App Currency (Coins) & Daily Limits
+                            </h2>
+                            <div class="space-y-4 text-sm text-slate-600 dark:text-slate-300">
+                                <p>
+                                    <strong>Virtual Coins:</strong> Madhyamik Shokha features a virtual reward unit called "Coins." Users earn Coins by completing quizzes, maintaining study streaks, or voluntarily watching rewarded advertisements. Coins are used solely within the app to unlock educational content, PDF notes, animation stories, or profile avatars. <strong>Coins have no real-world monetary value</strong> and cannot be purchased with real money, cashed out, or transferred.
+                                </p>
+                                <p>
+                                    <strong>Daily Limits:</strong> To promote healthy screen habits, prevent automated abuse, and ensure fair leaderboard competition, we enforce reasonable daily limits on quiz attempts, coin earning, and rewarded ad views. We track daily usage counters tied to your user ID.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- 7. Avatars, Advertising & Content Protection -->
+                        <div id="pp-avatars" class="bg-white dark:bg-slate-900 p-7 sm:p-8 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm scroll-mt-28">
+                            <h2 class="font-heading text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2.5">
+                                <span class="w-8 h-8 rounded-lg bg-brand-100 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center text-sm font-bold">7</span>
+                                Avatars, Advertising & Content Protection
+                            </h2>
+                            <div class="space-y-4 text-sm text-slate-600 dark:text-slate-300">
+                                <div>
+                                    <h4 class="font-bold text-slate-900 dark:text-white">Avatars and Profile</h4>
+                                    <p>Instead of uploading personal photographs (which protects student privacy), users select from pre-designed in-app Avatars. Your chosen avatar and display name are visible on the public in-app Leaderboard.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900 dark:text-white">Advertising</h4>
+                                    <p>We partner with Google AdMob to show ads that support free educational content. You can reset your Advertising ID or opt out of personalized ads at any time in your Android device settings (<em>Settings &gt; Google &gt; Ads</em>).</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900 dark:text-white">Content Protection</h4>
+                                    <p>All study materials, PDFs, videos, and animation stories are protected by technical anti-piracy measures (such as screenshot/screen-recording restrictions and encrypted streaming) to protect intellectual property.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 8. Data Security & Children's Privacy -->
+                        <div id="pp-security" class="bg-white dark:bg-slate-900 p-7 sm:p-8 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm scroll-mt-28">
+                            <h2 class="font-heading text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2.5">
+                                <span class="w-8 h-8 rounded-lg bg-brand-100 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center text-sm font-bold">8</span>
+                                Data Security & Children's Privacy
+                            </h2>
+                            <div class="space-y-4 text-sm text-slate-600 dark:text-slate-300">
+                                <p>
+                                    <strong>Data Security:</strong> All data transmitted between the app and Firebase servers is encrypted using HTTPS/TLS protocols. While we implement industry-standard security rules, no digital platform can guarantee 100% absolute security.
+                                </p>
+                                <p>
+                                    <strong>Children's Privacy:</strong> Madhyamik Shokha is designed for Class 10 students (typically aged 14–16). We do not knowingly collect sensitive personal information from children under 13. If a parent or guardian believes their child has provided unauthorized personal data, please contact us at <a href="mailto:sibnathbairagi94@gmail.com" class="text-brand-600 underline">sibnathbairagi94@gmail.com</a> and we will promptly delete it.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- 9. Retention, Account Deletion & Your Rights -->
+                        <div id="pp-retention" class="bg-white dark:bg-slate-900 p-7 sm:p-8 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm scroll-mt-28">
+                            <h2 class="font-heading text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2.5">
+                                <span class="w-8 h-8 rounded-lg bg-brand-100 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center text-sm font-bold">9</span>
+                                Data Retention, Account Deletion & Your Rights
+                            </h2>
+                            <div class="space-y-4 text-sm text-slate-600 dark:text-slate-300">
+                                <p>
+                                    <strong>Data Retention:</strong> We retain your account data and learning progress for as long as your account remains active so you don't lose your study history.
+                                </p>
+                                <div class="p-4 rounded-2xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/70 dark:border-amber-800/50">
+                                    <h4 class="font-bold text-amber-900 dark:text-amber-300 mb-1 flex items-center gap-2">
+                                        <i data-lucide="trash-2" class="w-4 h-4"></i> How to Delete Your Account
+                                    </h4>
+                                    <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+                                        You have the right to permanent deletion of your account and all associated data (Name, Email, Coins, Quiz Scores). You can request account deletion directly inside the app's Profile settings or by emailing <a href="mailto:sibnathbairagi94@gmail.com" class="font-bold underline">sibnathbairagi94@gmail.com</a> with your registered email. Requests are processed within 7–14 business days.
+                                    </p>
+                                </div>
+                                <p>
+                                    <strong>Your Rights:</strong> You have the right to access, update, correct, or request deletion of your personal data, and to withdraw consent at any time.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- 10. Policy Changes & Contact -->
+                        <div id="pp-contact" class="bg-white dark:bg-slate-900 p-7 sm:p-8 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm scroll-mt-28">
+                            <h2 class="font-heading text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2.5">
+                                <span class="w-8 h-8 rounded-lg bg-brand-100 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center text-sm font-bold">10</span>
+                                Changes to Policy & Contact Us
+                            </h2>
+                            <p class="text-sm text-slate-600 dark:text-slate-300 mb-4">
+                                We may update this Privacy Policy periodically to reflect new features or regulatory requirements. Any changes will be posted on this page with an updated revision date.
+                            </p>
+                            <div class="p-5 rounded-2xl bg-slate-100 dark:bg-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                                <div>
+                                    <h4 class="font-bold text-slate-900 dark:text-white text-sm">Have Privacy Questions?</h4>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400">Contact Sibnath Bairagi (Sibora) directly:</p>
+                                </div>
+                                <a href="mailto:sibnathbairagi94@gmail.com" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-600 text-white text-xs sm:text-sm font-semibold hover:bg-brand-700 transition-colors">
+                                    <i data-lucide="mail" class="w-4 h-4"></i>
+                                    sibnathbairagi94@gmail.com
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==========================================
+             SECTION 2: TERMS & CONDITIONS
+             ========================================== -->
+        <section id="tab-terms" class="tab-content py-12 lg:py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <!-- Document Header -->
+                <div class="bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 rounded-3xl p-8 sm:p-10 text-white mb-10 shadow-lg relative overflow-hidden">
+                    <div class="relative z-10 max-w-3xl">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/15 backdrop-blur text-xs font-semibold mb-4">
+                            <i data-lucide="file-check-2" class="w-3.5 h-3.5"></i> User Agreement
+                        </div>
+                        <h1 class="font-heading text-3xl sm:text-5xl font-extrabold mb-3">Terms & Conditions</h1>
+                        <p class="text-purple-100 text-sm sm:text-base">
+                            Please read these Terms & Conditions carefully before using the <strong>Madhyamik Shokha</strong> mobile application operated by <strong>Sibora</strong>.
+                        </p>
+                        <div class="mt-6 flex flex-wrap gap-4 text-xs text-purple-200">
+                            <span><strong>Last Updated:</strong> January 1, 2026</span>
+                            <span>•</span>
+                            <span><strong>Governing Law:</strong> India</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Terms Grid (20 Structured Clauses) -->
+                <div class="grid md:grid-cols-2 gap-6">
+                    
+                    <!-- 1. Acceptance of Terms -->
+                    <div class="bg-white dark:bg-slate-900 p-6 sm:p-7 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="w-8 h-8 rounded-xl bg-purple-100 dark:bg-purple-950 text-purple-600 dark:text-purple-400 font-bold text-sm flex items-center justify-center">01</span>
+                            <h3 class="font-heading font-bold text-lg text-slate-900 dark:text-white">Acceptance of Terms</h3>
+                        </div>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                            By downloading, accessing, or using the Madhyamik Shokha app, you agree to be bound by these Terms & Conditions and our Privacy Policy. If you do not agree with any part of these terms, please discontinue use of the application immediately.
+                        </p>
+                    </div>
+
+                    <!-- 2. Eligibility -->
+                    <div class="bg-white dark:bg-slate-900 p-6 sm:p-7 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="w-8 h-8 rounded-xl bg-purple-100 dark:bg-purple-950 text-purple-600 dark:text-purple-400 font-bold text-sm flex items-center justify-center">02</span>
+                            <h3 class="font-heading font-bold text-lg text-slate-900 dark:text-white">Eligibility</h3>
+                        </div>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                            This app is built primarily for WBBSE Class 10 students and educators in India. If you are under 18 years of age, you represent that you have obtained consent from your parent or legal guardian to use this educational platform.
+                        </p>
+                    </div>
+
+                    <!-- 3. License to Use -->
+                    <div class="bg-white dark:bg-slate-900 p-6 sm:p-7 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="w-8 h-8 rounded-xl bg-purple-100 dark:bg-purple-950 text-purple-600 dark:text-purple-400 font-bold text-sm flex items-center justify-center">03</span>
+                            <h3 class="font-heading font-bold text-lg text-slate-900 dark:text-white">Limited License</h3>
+                        </div>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                            Sibora grants you a personal, revocable, non-exclusive, non-transferable, and limited license to use Madhyamik Shokha strictly for personal, non-commercial educational preparation.
+                        </p>
+                    </div>
+
+                    <!-- 4. User Account & Login Methods -->
+                    <div class="bg-white dark:bg-slate-900 p-6 sm:p-7 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="w-8 h-8 rounded-xl bg-purple-100 dark:bg-purple-950 text-purple-600 dark:text-purple-400 font-bold text-sm flex items-center justify-center">04</span>
+                            <h3 class="font-heading font-bold text-lg text-slate-900 dark:text-white">User Account & Login Methods</h3>
+                        </div>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                            You may access the app via Google Sign-In, Email & Password, or Anonymous Guest Login. You are responsible for maintaining the confidentiality of your login credentials. Anonymous accounts may lose progress if the app is uninstalled or app data is cleared.
+                        </p>
+                    </div>
+
+                    <!-- 5. Acceptable Use Policy -->
+                    <div class="bg-white dark:bg-slate-900 p-6 sm:p-7 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="w-8 h-8 rounded-xl bg-purple-100 dark:bg-purple-950 text-purple-600 dark:text-purple-400 font-bold text-sm flex items-center justify-center">05</span>
+                            <h3 class="font-heading font-bold text-lg text-slate-900 dark:text-white">Acceptable Use Policy</h3>
+                        </div>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                            You agree NOT to use cheats, automation scripts, bots, modded APKs, or VPNs to manipulate quizzes, leaderboards, or ad rewards. Reverse engineering, decompiling, or attempting to hack Firebase databases is strictly prohibited.
+                        </p>
+                    </div>
+
+                    <!-- 6. In-App Coins -->
+                    <div class="bg-white dark:bg-slate-900 p-6 sm:p-7 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="w-8 h-8 rounded-xl bg-purple-100 dark:bg-purple-950 text-purple-600 dark:text-purple-400 font-bold text-sm flex items-center justify-center">06</span>
+                            <h3 class="font-heading font-bold text-lg text-slate-900 dark:text-white">Virtual Coins System</h3>
+                        </div>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                            "Coins" are virtual in-app tokens earned via learning activities and rewarded ads. Coins hold zero real-world cash value, cannot be exchanged for legal tender, and may be adjusted, reset, or forfeited if fraudulent activity is detected.
+                        </p>
+                    </div>
+
+                    <!-- 7. Daily Limits & Avatars -->
+                    <div class="bg-white dark:bg-slate-900 p-6 sm:p-7 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="w-8 h-8 rounded-xl bg-purple-100 dark:bg-purple-950 text-purple-600 dark:text-purple-400 font-bold text-sm flex items-center justify-center">07</span>
+                            <h3 class="font-heading font-bold text-lg text-slate-900 dark:text-white">Daily Limits & Avatars</h3>
+                        </div>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                            We enforce daily caps on quizzes, coin earnings, and rewarded ads to maintain fair usage. Users can customize profiles using preset in-app Avatars and must keep display names respectful and appropriate for a student environment.
+                        </p>
+                    </div>
+
+                    <!-- 8. Content Rules & Intellectual Property -->
+                    <div class="bg-white dark:bg-slate-900 p-6 sm:p-7 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="w-8 h-8 rounded-xl bg-purple-100 dark:bg-purple-950 text-purple-600 dark:text-purple-400 font-bold text-sm flex items-center justify-center">08</span>
+                            <h3 class="font-heading font-bold text-lg text-slate-900 dark:text-white">Content Rules & Copyright</h3>
+                        </div>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                            All PDF notes, video lessons, quizzes, and animation stories are the intellectual property of Sibora. Recording, screenshotting, redistributing, or selling our study materials on Telegram, YouTube, or other platforms is strictly prohibited.
+                        </p>
+                    </div>
+
+                    <!-- 9. Advertisements -->
+                    <div class="bg-white dark:bg-slate-900 p-6 sm:p-7 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="w-8 h-8 rounded-xl bg-purple-100 dark:bg-purple-950 text-purple-600 dark:text-purple-400 font-bold text-sm flex items-center justify-center">09</span>
+                            <h3 class="font-heading font-bold text-lg text-slate-900 dark:text-white">Advertisements</h3>
+                        </div>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                            To keep Madhyamik Shokha free for all students, the app displays third-party ads via Google AdMob. By using the app, you agree to view such advertisements and agree not to use ad-blockers or click ads fraudulently.
+                        </p>
+                    </div>
+
+                    <!-- 10. Account Suspension & Termination -->
+                    <div class="bg-white dark:bg-slate-900 p-6 sm:p-7 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="w-8 h-8 rounded-xl bg-purple-100 dark:bg-purple-950 text-purple-600 dark:text-purple-400 font-bold text-sm flex items-center justify-center">10</span>
+                            <h3 class="font-heading font-bold text-lg text-slate-900 dark:text-white">Account Suspension & Termination</h3>
+                        </div>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                            Sibora reserves the right to suspend, ban, or terminate any user account without prior notice if we detect leaderboard manipulation, abusive display names, coin farming, or violation of these Terms.
+                        </p>
+                    </div>
+
+                    <!-- 11. Disclaimer of Warranties & Limitation of Liability -->
+                    <div class="bg-white dark:bg-slate-900 p-6 sm:p-7 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="w-8 h-8 rounded-xl bg-purple-100 dark:bg-purple-950 text-purple-600 dark:text-purple-400 font-bold text-sm flex items-center justify-center">11</span>
+                            <h3 class="font-heading font-bold text-lg text-slate-900 dark:text-white">Disclaimer & Liability</h3>
+                        </div>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                            The app and study materials are provided "AS IS" as a supplementary learning aid and are not officially affiliated with the WBBSE board. While we strive for 100% accuracy, Sibora is not liable for exam results, syllabus changes, or temporary server downtime.
+                        </p>
+                    </div>
+
+                    <!-- 12. Third-Party Services, Modifications & Governing Law -->
+                    <div class="bg-white dark:bg-slate-900 p-6 sm:p-7 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="w-8 h-8 rounded-xl bg-purple-100 dark:bg-purple-950 text-purple-600 dark:text-purple-400 font-bold text-sm flex items-center justify-center">12</span>
+                            <h3 class="font-heading font-bold text-lg text-slate-900 dark:text-white">Modifications, Law & Contact</h3>
+                        </div>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                            We may update features, third-party integrations, or these Terms at any time. These Terms are governed by the laws of <strong>India</strong> (courts of West Bengal). For official support or legal inquiries, contact <strong>Sibnath Bairagi</strong> at <a href="mailto:sibnathbairagi94@gmail.com" class="text-brand-600 dark:text-brand-400 underline font-semibold">sibnathbairagi94@gmail.com</a> or reach out via our official WhatsApp, Instagram, and YouTube channels.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-slate-900 border-t border-slate-200/80 dark:border-slate-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+                
+                <!-- Brand Col -->
+                <div class="sm:col-span-2">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-9 h-9 rounded-xl bg-brand-600 flex items-center justify-center text-white">
+                            <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+                        </div>
+                        <span class="font-heading font-bold text-xl text-slate-900 dark:text-white">
+                            Madhyamik Shokha <span class="text-xs font-normal text-slate-500">by Sibora</span>
+                        </span>
+                    </div>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 max-w-sm leading-relaxed mb-4">
+                        Empowering WBBSE Class 10 students across West Bengal with free video lessons, PDF notes, quizzes, animation stories, and rewarding gamified learning.
+                    </p>
+                    <p class="text-xs text-slate-400">
+                        Developer & Founder: <strong class="text-slate-700 dark:text-slate-300">Sibnath Bairagi</strong> • Founded 2026 (India)
+                    </p>
+                </div>
+
+                <!-- Quick Navigation -->
+                <div>
+                    <h4 class="font-heading font-bold text-sm uppercase tracking-wider text-slate-900 dark:text-white mb-4">Quick Sections</h4>
+                    <ul class="space-y-2.5 text-sm text-slate-600 dark:text-slate-400">
+                        <li><button onclick="switchTab('about')" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">About Us & Mission</button></li>
+                        <li><button onclick="switchTab('privacy')" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Privacy Policy</button></li>
+                        <li><button onclick="switchTab('terms')" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Terms & Conditions</button></li>
+                        <li><a href="mailto:sibnathbairagi94@gmail.com" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Account Deletion Request</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact & Socials -->
+                <div>
+                    <h4 class="font-heading font-bold text-sm uppercase tracking-wider text-slate-900 dark:text-white mb-4">Connect With Us</h4>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mb-3">Email Support:</p>
+                    <a href="mailto:sibnathbairagi94@gmail.com" class="text-sm font-semibold text-brand-600 dark:text-brand-400 hover:underline block mb-5">
+                        sibnathbairagi94@gmail.com
+                    </a>
+                    <div class="flex items-center gap-3">
+                        <a href="https://whatsapp.com" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-emerald-500 hover:text-white text-slate-600 dark:text-slate-300 flex items-center justify-center transition-colors">
+                            <i data-lucide="message-circle" class="w-4 h-4"></i>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-pink-600 hover:text-white text-slate-600 dark:text-slate-300 flex items-center justify-center transition-colors">
+                            <i data-lucide="instagram" class="w-4 h-4"></i>
+                        </a>
+                        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-rose-600 hover:text-white text-slate-600 dark:text-slate-300 flex items-center justify-center transition-colors">
+                            <i data-lucide="youtube" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-slate-200/60 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 dark:text-slate-400 gap-4">
+                <p>© 2026 Sibora • Madhyamik Shokha. All rights reserved.</p>
+                <p>Built for WBBSE Class 10 Students in India 🇮🇳</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Tab Switching Logic
+        function switchTab(tabName) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Show target tab content
+            const targetSection = document.getElementById('tab-' + tabName);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+
+            // Update Desktop Tab Buttons
+            const allDesktopBtns = document.querySelectorAll('.tab-btn');
+            allDesktopBtns.forEach(btn => {
+                btn.className = "tab-btn px-5 py-2 rounded-xl text-sm font-semibold transition-all duration-200 flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white";
+            });
+            const activeDesktopBtn = document.getElementById('tab-btn-' + tabName);
+            if (activeDesktopBtn) {
+                activeDesktopBtn.className = "tab-btn active px-5 py-2 rounded-xl text-sm font-semibold transition-all duration-200 flex items-center gap-2 bg-white dark:bg-slate-800 text-brand-600 dark:text-brand-400 shadow-sm";
+            }
+
+            // Update Mobile Tab Buttons
+            const allMobBtns = document.querySelectorAll('.mob-tab-btn');
+            allMobBtns.forEach(btn => {
+                btn.className = "mob-tab-btn flex-1 py-2 rounded-lg text-xs font-semibold flex flex-col items-center justify-center gap-1 text-slate-600 dark:text-slate-400";
+            });
+            const activeMobBtn = document.getElementById('mob-tab-btn-' + tabName);
+            if (activeMobBtn) {
+                activeMobBtn.className = "mob-tab-btn flex-1 py-2 rounded-lg text-xs font-semibold flex flex-col items-center justify-center gap-1 bg-white dark:bg-slate-800 text-brand-600 dark:text-brand-400 shadow-sm";
+            }
+
+            // Scroll to top smoothly
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Dark Mode Toggle Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        // Check system preference on load
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            htmlElement.classList.add('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+        });
+    </script>
+</body>
+</html>
